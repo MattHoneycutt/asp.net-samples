@@ -1,0 +1,87 @@
+﻿@using AngularPassingData.Helpers
+@model AngularPassingData.Models.PersonViewModel[]
+
+<h1>Sample: Passing Data to AngularJS!</h1>
+
+<div class="alert alert-info">
+	This sample demonstrates a couple of ways that you can pass data from Razor to AngularJS. For more information,
+	see <a target="_blank" href="http://trycatchfail.com/blog/post/Passing-Data-to-Angular-from-ASPNET-MVC-Views.aspx">this post at try-catch-FAIL.</a> 
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4>Option 1: Using ngInit</h4>
+	</div>
+	<div class="panel-body" ng-controller="NgInitSampleController as vm" ng-init='vm.init(@Model.ToJson())'>
+		<table class="table" style="font-size: 1.1em">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Occupation</th>
+				<th>Age</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="person in vm.people">
+				<td>{{person.name}}</td>
+				<td>{{person.occupation}}</td>
+				<td>{{person.age}}</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4>Option 2: Using a Value Provider (Locally)</h4>
+	</div>
+	<div class="panel-body" ng-controller="LocalValueProviderController as vm">
+		<table class="table" style="font-size: 1.1em">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Occupation</th>
+				<th>Age</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="person in vm.people">
+				<td>{{person.name}}</td>
+				<td>{{person.occupation}}</td>
+				<td>{{person.age}}</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+@section Scripts {
+	<script>
+		window.app.value('peopleData', @Model.ToJson());
+	</script>
+}
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4>Option 3: Using a Value Provider (Globally)</h4>
+	</div>
+	<div class="panel-body" ng-controller="GlobalValueProviderController as vm" ng-init='vm.init(@Model.ToJson())'>
+		<table class="table" style="font-size:1.1em">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Occupation</th>
+					<th>Age</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="person in vm.people">
+					<td>{{person.name}}</td>
+					<td>{{person.occupation}}</td>
+					<td>{{person.age}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
