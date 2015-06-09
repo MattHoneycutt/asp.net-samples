@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "identity-with-ioc", "identity-with-ioc\identity-with-ioc.csproj", "{7A8ABD71-3867-450E-9D7C-54B2ECE86F0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "identity-with-ioc", "IdentityWithIoc\identity-with-ioc.csproj", "{7A8ABD71-3867-450E-9D7C-54B2ECE86F0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
