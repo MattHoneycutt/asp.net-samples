@@ -1,0 +1,29 @@
+﻿@model QueryEncapsulation.Web.Models.TopPostModel[]
+
+@{
+	ViewBag.Title = "Home";
+}
+
+<h2>Top Posts</h2>
+<p><i>The output below will be the same regardless of which query method you choose. :)</i></p>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Post Date</th>
+			<th>Number of Comments</th>
+			<th>Microsoft Posters</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var post in Model)
+		{
+			<tr>
+				<td>@post.Title</td>
+				<td>@post.PostDate.ToShortDateString()</td>
+				<td>@post.CommentCount</td>
+				<td>@string.Join(", ", post.MicrosoftPosterAddresses)</td>
+			</tr>
+		}
+	</tbody>
+</table>

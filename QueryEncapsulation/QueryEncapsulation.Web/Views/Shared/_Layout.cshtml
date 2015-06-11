@@ -1,0 +1,44 @@
+﻿@using System.Web.Mvc.Html
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>@ViewBag.Title</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+	<style>
+		body {
+			padding-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Query Encapsulation Sample</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li>@(Html.ActionLink("Raw EF", "Index", "Home"))</li>
+					<li>@(Html.ActionLink("AutoMapper", "WithAutoMapper", "Home"))</li>
+					<li>@(Html.ActionLink("Single Extension", "WithSingleExtensionMethod", "Home"))</li>
+					<li>@(Html.ActionLink("Composable Extensions", "WithComposableExtensionMethod", "Home"))</li>
+					<li>@(Html.ActionLink("Query Object", "WithAQueryObject", "Home"))</li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</nav>
+	<div class="container-fluid">
+		@RenderBody()
+	</div>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+</html>
