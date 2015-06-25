@@ -3,7 +3,6 @@ using StructureMap;
 using StructureMapDecorator.Sample.Domain;
 using StructureMapDecorator.Sample.Repositories;
 using StructureMapDecorator.Sample.Services;
-using StructureMapDecorator.Sample.Utils;
 
 namespace StructureMapDecorator.Sample
 {
@@ -16,10 +15,10 @@ namespace StructureMapDecorator.Sample
 			var container = new Container(cfg =>
 			                              	{
 			                              		cfg.For<User>().Use(currentUser);
-			                              		cfg.For<IProductRepository>().Use<InMemoryProductRepository>()
-			                              			.Decorate().With<ProductSecurityDecorator>()
-			                              			.AndThen<ProductRepoLogger>()
-													.AndThen<RudeProductRepoLogger>();
+			                              		cfg.For<IProductRepository>().Use<InMemoryProductRepository>();
+												cfg.For<IProductRepository>().DecorateAllWith<ProductSecurityDecorator>();
+												cfg.For<IProductRepository>().DecorateAllWith<ProductRepoLogger>();
+												cfg.For<IProductRepository>().DecorateAllWith<RudeProductRepoLogger>();
 			                              		cfg.For<IProductAuthorizer>().Use<ProductAuthorizer>();
 			                              	});
 
