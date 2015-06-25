@@ -29,3 +29,5 @@ _ReSharper*/
 [Tt]est[Rr]esult*
 /**/packages/**/
 *.nupkg
+**/App_Data/*.ldf
+**/App_Data/*.mdf
